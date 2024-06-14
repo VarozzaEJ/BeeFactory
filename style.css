@@ -1,5 +1,21 @@
-.pacifico-regular {
+.pacifico {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
+}
+
+.bg-image {
+    background-image: url(https://images.unsplash.com/photo-1461342249744-29a57e9bd1cb?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+}
+
+.flower-img {
+    height: 40dvh;
+}
+
+.font-big {
+    font-size: 50px;
+}
+
+.bee-yellow {
+    background-color: #fff700;
 }

@@ -11,13 +11,115 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script id="debug-script" src="https://cdn.jsdelivr.net/gh/MickShannahan/style-debug@latest/debug.min.js"
+        defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="bg-image debug">
+    <div class="">
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class=" col-12">
+                        <h1 class="pacifico bg-warning text-warning-emphasis d-flex justify-content-center m-3 p-3">Bee
+                            Factory</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
 
+        <main>
+            <!-- ANCHOR Flower Image -->
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-12 d-flex justify-content-center my-5 py-3">
+                        <img onclick="mine()"
+                            src="https://i.pinimg.com/originals/6b/28/d7/6b28d7fb925370efd08537f2cf29be78.png"
+                            alt="Clickable Flower" class="img-fluid flower-img">
+                    </div>
+                </div>
+                <!-- ANCHOR Total Flower Pollen -->
+                <div class="row justify-content-center d-flex">
+                    <div class="col-11 d-inline-flex justify-content-center">
+                        <div class="justify-content-center d-flex text-light">
+                            <p id="totalFlowerPollen" class="font-big"><i class="mdi mdi-flower-pollen"></i>: 0</p>
+                        </div>
+                    </div>
+                    <!-- ANCHOR Upgrade Buttons -->
+                    <div class="col-6  flex-column bee-yellow">
+                        <div class="row">
+                            <div class="col-3 d-flex flex-column justify-content-start">
 
+                                <button class="btn btn-warning my-3">50 <i class="mdi mdi-flower-pollen"></i></button>
+                                <button class="btn btn-warning my-3">250 <i class="mdi mdi-flower-pollen"></i></button>
+                            </div>
+                            <div class="col-3">
+                                <p class="py-3">Bee +1<i class="mdi mdi-bee"></i></p>
+                                <p class="py-3">Hive +5<i class="mdi mdi-beehive-outline"></i></p>
+                            </div>
+                            <div class="col-3 d-flex flex-column">
+                                <button class="btn btn-danger my-3">1k <i class="mdi mdi-flower-pollen"></i></button>
+                                <button class="btn btn-danger my-3">50k <i class="mdi mdi-flower-pollen"></i></button>
+                            </div>
+                            <div class="col-3">
+                                <p class="pt-2">SuperBee +10/2s<i class="mdi mdi-bee"></i></p>
+                                <p class="pb-2">QueenBee +100/2s<i class="mdi mdi-beehive-outline"></i></p>
+                            </div>
+                        </div>
+                        <!-- ANCHOR Upgrade Counts -->
+                    </div>
+                    <div class="col-6 bee-yellow">
+                        <div class="row">
+                            <div class="col-6 d-flex flex-column justify-content-between">
+                                <div class="pacifico mb-2 fs-4">Click Stats</div>
 
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="fs-4 border border-light rounded px-2" id="bee-quantity">0</span>
+                                    <span class="fs-5 ps-4">Bees</span>
+                                    <span class="fs-4"> <i class="mdi mdi-arrow-right"></i></span>
+                                    <span class="fs-4 ms-4 border border-light rounded px-2" id="click-power">0</span>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="fs-4 border border-light rounded px-2" id="hive-quantity">0</span>
+                                    <span class="fs-5 ps-4">Hives</span>
+                                    <span class="fs-4"> <i class="mdi mdi-arrow-right"></i></span>
+                                    <span class="fs-4 ms-4 border border-light rounded px-2" id="hive-power">0</span>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6 d-flex flex-column justify-content-between">
+                                <div class="pacifico mb-2 fs-4">Auto Stats</div>
+
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="fs-4 border border-light rounded px-2" id="superbee-quantity">0</span>
+                                    <span class="fs-5 ps-4">SuperBees</span>
+                                    <span class="fs-4"> <i class="mdi mdi-timer"></i></span>
+                                    <span class="fs-4 ms-4 border border-light rounded px-2"
+                                        id="superbee-power">0</span>
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="fs-4 border border-light rounded px-2" id="queenbee-quantity">0</span>
+                                    <span class="fs-5 ps-4">QueenBees</span>
+                                    <span class="fs-4"> <i class="mdi mdi-timer"></i></span>
+                                    <span class="fs-4 ms-4 border border-light rounded px-2"
+                                        id="queenbee-power">0</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+
+    </div>
     <script src="app.js"></script>
 </body>
 
