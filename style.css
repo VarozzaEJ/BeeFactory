@@ -10,6 +10,7 @@
 
 .flower-img {
     height: 40dvh;
+
 }
 
 .font-big {
@@ -18,4 +19,12 @@
 
 .bee-yellow {
     background-color: #fff700;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px #000000;
 }

@@ -29,7 +29,7 @@ let automaticUpgrades = [
     },
 ];
 
-let pollen = 6000
+let pollen = 11000
 let clickPower = 1
 let automaticClickPower = 0
 
@@ -54,6 +54,7 @@ function buyBee() {
         pollen -= bee.price
         console.log("bought bee", bee.quantity)
         clickPower += 1
+        bee.price += 5
     }
     update()
 }
@@ -64,6 +65,7 @@ function buyHive() {
         pollen -= hive.price
         console.log("bought hive", hive.quantity)
         clickPower += 5
+        hive.price += 10
     }
     update()
 }
@@ -73,18 +75,28 @@ function buyAutoUpgrade(specialBee) {
         specialBee.quantity++
         pollen -= specialBee.price
         console.log(`bought ${specialBee.name}`)
-
+        specialBee.price += 50
     }
     update()
 }
 
+let automaticAwesomeClickPower = 0
+
 function autoUpgradeClicks() {
-    automaticUpgrades.forEach(specialBee => {
-        automaticClickPower = (specialBee.multiplier * specialBee.quantity)
-        pollen += automaticClickPower
-        update()
-    });
-    console.log(pollen)
+    pollen += automaticClickPower
+    update()
+}
+function increaseAutoUpgradeClicksForSuperbee() {
+    if (pollen >= superbee.price) {
+        automaticClickPower += 20
+        console.log(automaticClickPower)
+    }
+}
+function increaseAutoUpgradeClicksForQueenbee() {
+    if (pollen >= queenbee.price) {
+        automaticClickPower += 30
+        console.log(automaticClickPower)
+    }
 }
 
 function update() {
@@ -96,6 +108,10 @@ function update() {
     const queenbeeQuantityElem = document.getElementById("queenbee-quantity")
     const totalClickPowerElem = document.getElementById("totalClickPower")
     const totalIntervalPowerElem = document.getElementById("totalIntervalPower")
+    const superBeeButtonElem = document.getElementById("superbeePrice")
+    const queenBeeButtonElem = document.getElementById("queenbeePrice")
+    const beePriceButtonElem = document.getElementById("beePrice")
+    const hivePriceButtonElem = document.getElementById("hivePrice")
     totalPollenElem.innerText = pollen
     beeQuantityElem.innerText = bee.quantity
     hiveQuantityElem.innerText = hive.quantity
@@ -103,9 +119,15 @@ function update() {
     queenbeeQuantityElem.innerText = queenbee.quantity
     totalClickPowerElem.innerText = clickPower
     totalIntervalPowerElem.innerText = automaticClickPower
+    superBeeButtonElem.innerText = superbee.price
+    queenBeeButtonElem.innerText = queenbee.price
+    beePriceButtonElem.innerText = bee.price
+    hivePriceButtonElem.innerText = hive.price
 }
 
 // ANCHOR Auto Run Functions
-
+update()
 setInterval(autoUpgradeClicks, 1000)
 update()
+
+//TODO button text should update whenever the price of that thing gets increased... Total clicks should get tallied up individually at the bottom right of the page whenever you buy a new item 
