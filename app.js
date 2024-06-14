@@ -7,7 +7,7 @@ let clickUpgrades = [
     },
     {
         name: 'hive',
-        price: 200,
+        price: 250,
         quantity: 0,
         multiplier: 1.3
     },
@@ -23,15 +23,15 @@ let automaticUpgrades = [
     },
     {
         name: 'queenbee',
-        price: 1000,
+        price: 5000,
         quantity: 0,
         multiplier: 30
     },
 ];
 
-let pollen = 50000
+let pollen = 6000
 let clickPower = 1
-
+let automaticClickPower = 0
 
 // ANCHOR Find All Upgrades in The Arrays To Save Time
 const bee = clickUpgrades.find((bee) => bee.name == "bee")
@@ -78,16 +78,34 @@ function buyAutoUpgrade(specialBee) {
     update()
 }
 
-//Put this in draw when that's made or maybe make this draw
+function autoUpgradeClicks() {
+    automaticUpgrades.forEach(specialBee => {
+        automaticClickPower = (specialBee.multiplier * specialBee.quantity)
+        pollen += automaticClickPower
+        update()
+    });
+    console.log(pollen)
+}
+
 function update() {
+    // let totalIntervalPower = autoUpgradeClicks()
     const totalPollenElem = document.getElementById("totalFlowerPollen")
     const beeQuantityElem = document.getElementById("bee-quantity")
     const hiveQuantityElem = document.getElementById("hive-quantity")
     const superbeeQuantityElem = document.getElementById("superbee-quantity")
     const queenbeeQuantityElem = document.getElementById("queenbee-quantity")
+    const totalClickPowerElem = document.getElementById("totalClickPower")
+    const totalIntervalPowerElem = document.getElementById("totalIntervalPower")
     totalPollenElem.innerText = pollen
     beeQuantityElem.innerText = bee.quantity
     hiveQuantityElem.innerText = hive.quantity
     superbeeQuantityElem.innerText = superbee.quantity
     queenbeeQuantityElem.innerText = queenbee.quantity
+    totalClickPowerElem.innerText = clickPower
+    totalIntervalPowerElem.innerText = automaticClickPower
 }
+
+// ANCHOR Auto Run Functions
+
+setInterval(autoUpgradeClicks, 1000)
+update()
