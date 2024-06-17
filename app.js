@@ -29,7 +29,7 @@ let automaticUpgrades = [
     },
 ];
 
-let pollen = 11000
+let pollen = 500
 let clickPower = 1
 let automaticClickPower = 0
 
@@ -84,6 +84,7 @@ let automaticAwesomeClickPower = 0
 
 function autoUpgradeClicks() {
     pollen += automaticClickPower
+    // pollen += getAutoClickPower()
     update()
 }
 function increaseAutoUpgradeClicksForSuperbee() {
